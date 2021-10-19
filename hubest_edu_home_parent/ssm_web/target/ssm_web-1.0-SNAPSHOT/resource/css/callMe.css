@@ -1,0 +1,63 @@
+
+.main {
+    width: 100%;
+    height: 1200px;
+}
+.pic {
+    background-image: url(../images/联系我们.5756b701.jpg);
+    height: 460px;
+    text-align: center;
+    background-position: 50% center;
+}
+.middle {
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+.middle-header {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin:20px auto 10px;
+    font-size: 14px;
+    border-bottom: 1px solid black;
+}
+.middle-main {
+    font-size: 14px;
+}
+.icon-phone{
+    background-image: url(../images/weibiaoti-.png);
+    background-repeat: no-repeat;
+    background-position: 87px 13px;
+}
+
+.icon-qq {
+    background-image: url(../images/QQ.png);
+    background-repeat: no-repeat;
+    background-position: 93px;
+}
+.icon-site {
+    background-image: url(../images/dizhi.png);
+    background-repeat: no-repeat;
+    background-position: 40px;
+}
+.footer-nav {
+    list-style: none;
+    width: 1100px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    border-bottom: 1px dashed #cccccc;
+}
+.footer-nav li {
+    float: left;
+    width: 366px;
+    
+}
+.map {
+    width: 1100px;
+    height: 480px;
+    margin: auto;
+    border: 1px solid green;
+    margin-top: 45px;
+}

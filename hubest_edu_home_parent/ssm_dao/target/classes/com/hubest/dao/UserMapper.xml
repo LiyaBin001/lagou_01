@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hubest.dao.UserMapper">
+    <insert id="saveUser" parameterType="com.hubest.domain.User">
+        insert into user values username = #{username}, password = #{password}
+    </insert>
+
+
+    <select id="findUser" parameterType="com.hubest.domain.User" resultType="com.hubest.domain.User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+</mapper>
