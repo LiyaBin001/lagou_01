@@ -1,10 +1,8 @@
 package com.lagou.controller;
 
-import com.lagou.domain.Menu;
-import com.lagou.domain.ResponseResult;
-import com.lagou.domain.Role;
-import com.lagou.domain.RoleMenuVo;
+import com.lagou.domain.*;
 import com.lagou.service.MenuService;
+import com.lagou.service.RoleResourceService;
 import com.lagou.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +19,9 @@ public class RoleController {
 
     @Autowired
     private RoleService roleService;
+
+    @Autowired
+    private RoleResourceService roleResourceService;
 
     /*
         查询所有角色（条件）
@@ -101,5 +102,15 @@ public class RoleController {
 
 
 
+    /*
+        为角色分配菜单
+     */
+    @RequestMapping("/roleContextResource")
+    public ResponseResult roleContextResource(@RequestBody RoleResourceVo roleResourceVo) {
+
+        roleResourceService.saveRoleResource(roleResourceVo);
+
+        return new ResponseResult(true,200,"为角色分配菜单成功",null);
+    }
 
 }

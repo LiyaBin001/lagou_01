@@ -39,4 +39,15 @@
     </delete>
 
 
+    <!--查询角色所拥有的资源信息-->
+    <select id="findResourceByRoleId" parameterType="int" resultType="com.lagou.domain.Resource">
+        SELECT
+            resource.*
+        FROM
+            role_resource_relation  INNER JOIN roles  ON role_resource_relation.`role_id` = roles.`id`
+            INNER JOIN resource ON role_resource_relation.`resource_id` = resource.`id`WHERE  roles.id = #{roleId}
+    </select>
+
+    <!--查询当前角色拥有的资源分类信息-->
+
 </mapper>

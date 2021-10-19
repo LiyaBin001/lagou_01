@@ -1,5 +1,7 @@
 package com.lagou.dao;
 
+import com.lagou.domain.Resource;
+import com.lagou.domain.ResourceCategory;
 import com.lagou.domain.Role;
 import com.lagou.domain.Role_menu_relation;
 
@@ -37,6 +39,18 @@ public interface RoleMapper {
 
     public void deleteRole(Integer roleid);
 
+
+
+    /*
+        通过category_id查询资源分类信息
+    */
+
+    public List<ResourceCategory> findResourceListByRoleId(Integer categoryId);
+
+    /*
+         查询当前角色拥有的资源信息
+     */
+    public List<Resource> findResourceByRoleId(Integer roleId);
 
 
 }

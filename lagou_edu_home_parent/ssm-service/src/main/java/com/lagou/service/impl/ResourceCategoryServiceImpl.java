@@ -18,8 +18,26 @@ public class ResourceCategoryServiceImpl implements ResourceCategoryService {
     @Override
     public List<ResourceCategory> findAllResourceCategory() {
 
-        List<ResourceCategory> allResourceCategory = resourceCategoryMapper.findAllResourceCategory();
+        return resourceCategoryMapper.findAllResourceCategory();
+    }
 
-        return allResourceCategory;
+    @Override
+    public void saveResourceCategory(ResourceCategory resourceCategory) {
+
+        //添加资源信息
+        resourceCategoryMapper.saveResourceCategory(resourceCategory);
+
+    }
+
+    @Override
+    public void updateResourceCategory(ResourceCategory resourceCategory) {
+
+        resourceCategoryMapper.updateResourceCategory(resourceCategory);
+    }
+
+    @Override
+    public void deleteResourceCategory(Integer id) {
+
+        resourceCategoryMapper.deleteResourceCategory(id);
     }
 }

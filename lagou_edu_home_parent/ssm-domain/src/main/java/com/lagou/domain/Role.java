@@ -76,4 +76,5 @@ public class Role {
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
+
 }
