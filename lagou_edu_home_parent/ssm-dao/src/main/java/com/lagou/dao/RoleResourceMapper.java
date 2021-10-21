@@ -26,4 +26,6 @@ public interface RoleResourceMapper {
         为角色分配资源, 删除完成后 ,插入最新的关联关系
      */
     public void saveRoleResource(RoleResourceRelation roleResourceRelation);
+
+
 }

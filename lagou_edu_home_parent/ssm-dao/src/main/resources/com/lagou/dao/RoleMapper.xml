@@ -38,6 +38,18 @@
         delete from roles where id = #{roleid}
     </delete>
 
+    <!--查询当前角色拥有的资源分类信息-->
+
+    <select id="findResourceListByRoleId" parameterType="int" resultType="com.lagou.domain.ResourceCategory">
+
+        SELECT
+            *
+        FROM resource_category WHERE id IN (
+            (SELECT
+            DISTINCT resource.`category_id`
+            FROM role_resource_relation INNER JOIN resource ON role_resource_relation.`resource_id` = resource.`id` WHERE role_resource_relation.`role_id` = #{id}
+            ))
+    </select>
 
     <!--查询角色所拥有的资源信息-->
     <select id="findResourceByRoleId" parameterType="int" resultType="com.lagou.domain.Resource">
@@ -45,9 +57,10 @@
             resource.*
         FROM
             role_resource_relation  INNER JOIN roles  ON role_resource_relation.`role_id` = roles.`id`
-            INNER JOIN resource ON role_resource_relation.`resource_id` = resource.`id`WHERE  roles.id = #{roleId}
+                                    INNER JOIN resource ON role_resource_relation.`resource_id` = resource.`id`WHERE  roles.id = #{roleId}
     </select>
 
-    <!--查询当前角色拥有的资源分类信息-->
+
+
 
 </mapper>

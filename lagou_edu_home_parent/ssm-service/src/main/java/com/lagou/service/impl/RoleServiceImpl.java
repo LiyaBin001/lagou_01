@@ -1,13 +1,12 @@
 package com.lagou.service.impl;
 
 import com.lagou.dao.RoleMapper;
-import com.lagou.domain.Role;
-import com.lagou.domain.RoleMenuVo;
-import com.lagou.domain.Role_menu_relation;
+import com.lagou.domain.*;
 import com.lagou.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -66,5 +65,31 @@ public class RoleServiceImpl implements RoleService {
         roleMapper.deleteRoleContextMenu(roleid);
 
         roleMapper.deleteRole(roleid);
+    }
+
+    @Override
+    public List<ResourceCategory> findResourceListByRoleId(Integer roleId) {
+
+        //调用dao方法分别获取到角色id对应的资源分类信息以及资源信息
+
+        //资源分类信息集合
+        List<ResourceCategory> resourceListByRoleId = roleMapper.findResourceListByRoleId(roleId);
+        //资源信息集合
+        List<Resource> resourceByRoleId = roleMapper.findResourceByRoleId(roleId);
+
+        //将资源数据封装到对应的分类下
+        List<Resource> temp = new ArrayList<>();
+        for (ResourceCategory rc : resourceListByRoleId) {
+            Integer id = rc.getId();
+            for (Resource resource : resourceByRoleId) {
+                if(resource.getCategoryId().equals(id)) {
+                    temp.add(resource);
+                }
+            }
+            //将资源信息封装到对应的资源分类信息下
+            rc.setResourceList(new ArrayList<>(temp));
+            temp.clear();
+        }
+        return resourceListByRoleId;
     }
 }

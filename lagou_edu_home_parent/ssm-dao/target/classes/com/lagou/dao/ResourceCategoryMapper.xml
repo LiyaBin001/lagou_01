@@ -9,18 +9,18 @@
     </select>
 
 
-    <!--添加或修改资源分类-->
+    <!--添加资源分类-->
     <insert id="saveResourceCategory" parameterType="com.lagou.domain.ResourceCategory">
         insert INTO resource_category VALUES(null,#{name},#{sort},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
     </insert>
 
     
-    <!--这里错了！！！！！！！！！！！！！！！！！！！！！！！-->
+    <!--修改资源分类-->
     <update id="updateResourceCategory" parameterType="com.lagou.domain.ResourceCategory">
         update resource_category set name = #{name},sort = #{sort},updated_time = #{updatedTime},updated_by = #{updatedBy} where id = #{id}
 </update>
     
-    <!--根据Id删除资源信息-->
+    <!--根据ID删除资源信息-->
     <delete id="deleteResourceCategory" parameterType="int">
         delete from resource_category where id = #{id}
     </delete>

@@ -14,6 +14,14 @@ public class ResourceCategory {
     private String createdBy;
     private String updatedBy;
 
+    public List<Resource> getResourceList() {
+        return resourceList;
+    }
+
+    public void setResourceList(List<Resource> resourceList) {
+        this.resourceList = resourceList;
+    }
+
     //资源集合
     private List<Resource> resourceList = new ArrayList<>();
 

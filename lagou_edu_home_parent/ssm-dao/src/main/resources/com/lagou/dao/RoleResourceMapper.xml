@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="RoleResourceMapper">
+<mapper namespace="com.lagou.dao.RoleResourceMapper">
 
     <!--根据角色ID 删除角色与资源的关联关系-->
     <delete id="deleteRoleResourceById" parameterType="int">

@@ -113,4 +113,16 @@ public class RoleController {
         return new ResponseResult(true,200,"为角色分配菜单成功",null);
     }
 
+    /*
+         获取当前角色拥有的 资源信息
+     */
+    @RequestMapping("/findResourceListByRoleId")
+    public ResponseResult findResourceListByRoleId(Integer roleId) {
+
+        List<ResourceCategory> resourceListByRoleId = roleService.findResourceListByRoleId(roleId);
+
+        return new ResponseResult(true,200,"获取当前角色拥有的资源信息成功",resourceListByRoleId);
+    }
+
+
 }

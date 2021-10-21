@@ -1,5 +1,6 @@
 package com.lagou.service;
 
+import com.lagou.domain.ResourceCategory;
 import com.lagou.domain.Role;
 import com.lagou.domain.RoleMenuVo;
 
@@ -28,6 +29,11 @@ public interface RoleService {
     public void deleteRole(Integer roleid);
 
 
+   /*
+        通过当前角色查询资源分类信息
+    */
+
+    public List<ResourceCategory> findResourceListByRoleId(Integer roleId);
 
 
 }

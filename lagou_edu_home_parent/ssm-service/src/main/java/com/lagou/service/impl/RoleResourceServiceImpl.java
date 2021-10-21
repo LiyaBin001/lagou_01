@@ -21,7 +21,7 @@ public class RoleResourceServiceImpl implements RoleResourceService {
     public void saveRoleResource(RoleResourceVo roleResourceVo) {
 
 
-        //优先删除对应id在管理变种的内容
+        //优先删除对应id在管理的内容
         roleResourceMapper.deleteRoleResourceById(roleResourceVo.getRoleId());
 
         //然后遍历集合封装数据
